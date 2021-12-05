@@ -3,7 +3,7 @@ import React from 'react';
 //import { Counter } from './features/counter/Counter';
 import './App.css';
 import AppUI from './ui';
-import AppWorld from './world';
+import AppScene from './scene';
 
 
 
@@ -12,7 +12,7 @@ function App() {
   return (
        <div className="App" >
         <AppUI/>
-        <AppWorld />
+        <AppScene />
         {/* <Counter /> */}
         
       

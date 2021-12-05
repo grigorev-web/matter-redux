@@ -4,3 +4,6 @@ body{
 .App{
     position: relative;
 }
+.scene{
+    position:absolute;
+}
