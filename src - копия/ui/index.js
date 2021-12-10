@@ -29,15 +29,12 @@ const AppUI = () => {
       Game.restart();
       dispatch(start());
     }
-    function toggleDebug(){
-      Game.toggleDebug();
-    }
+    
   return (
     <div style={{position:'absolute',zIndex:10}}>
       <h2>APP UI</h2>
       <button onClick={startStop}>{run ? 'stop':'run'}</button>
       <button onClick={restartFunc}>restart</button>
-      <button onClick={toggleDebug}>debug mode</button>
     </div>
   );
 };
