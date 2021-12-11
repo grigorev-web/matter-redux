@@ -1,5 +1,6 @@
 import { Bodies, Composite, Constraint } from "matter-js";
-import GameObj from "./GameObj"
+import GameObj from "./prototype/GameObj"
+import { defaultBodyStyleRender } from "./PlayerCar/config";
 
 
 
@@ -11,7 +12,7 @@ class CircleObj extends GameObj{
         
         const wheelA = Bodies.circle(this.centerX, this.centerY - 190, radius, {
             collisionFilter: { group: -1 },
-            render: this.defaultBodyStyleRender,
+            render: defaultBodyStyleRender,
           });
           this.setCenterBody(wheelA);
         //this.bodies.push(wheelA);
@@ -19,7 +20,7 @@ class CircleObj extends GameObj{
 
         const wheelB = Bodies.circle(this.centerX + 100, this.centerY, radius, {
         collisionFilter: { group: -1 },
-        render: this.defaultBodyStyleRender,
+        render: defaultBodyStyleRender,
         });
         //this.bodies.push(wheelB);
         Composite.add(this.composite,wheelB);

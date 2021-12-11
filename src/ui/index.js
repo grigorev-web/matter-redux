@@ -1,6 +1,6 @@
 
 import { useDispatch, useSelector } from "react-redux";
-import Game from "../scene/Game";
+import Game from "../scene/game/Game";
 import { selectRun } from "./UiSlice";
 import { start,toggle } from "./UiSlice";
 

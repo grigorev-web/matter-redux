@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import Game from "./Game";
+import Game from "./game/Game";
 
 const AppScene = () => {
   console.log("APP WORLD RE RENDER");
