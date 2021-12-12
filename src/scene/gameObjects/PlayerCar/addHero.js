@@ -12,6 +12,7 @@ export function addHero() {
       },
     },
     density: 0.0005,
+    frictionAir:0.001,
     isHero:true,
   });
 
@@ -53,7 +54,7 @@ export function addHero() {
     isSafetySensor:true,
     isSensor:true,
     render: {
-      
+    visible:false,
     },
     density: 0.0005,
   });
@@ -66,7 +67,7 @@ export function addHero() {
     //pointA: { x: 0, y: 20 },
     stiffness: 0.9,
     render: { 
-        //visible: false 
+        visible: false 
     },
   });
 
@@ -77,7 +78,7 @@ export function addHero() {
     pointA: { x: -25, y: 0 },
     stiffness: 0.9,
     render: { 
-        //visible: false 
+        visible: false 
     },
   });
   Composite.add(this.composite, [

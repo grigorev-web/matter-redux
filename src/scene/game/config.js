@@ -1,8 +1,8 @@
 
 
 export const  viewport = {
-        x: 600,
-        y: 600,
+        x: 500,
+        y: 500,
         xOffset:0,
         yOffset:0,
     }

@@ -11,6 +11,7 @@ export function addWheels() {
         }
     },
     friction: 1,
+    frictionAir:0.001,
   });
 
   Composite.add(this.composite, wheelFront);
@@ -43,7 +44,8 @@ export function addWheels() {
     restitution: 1,
     friction: 1,
     label: "drive",
-    frictionStatic:0.9
+    frictionStatic:0.9,
+    frictionAir:0.001,
   });
 
   const wheelRearSensor = Bodies.circle(

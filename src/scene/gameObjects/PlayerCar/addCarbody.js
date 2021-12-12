@@ -12,7 +12,7 @@ export function addCarbody() {
       }
   },
     density: 0.0045,
-    frictionAir:0.003,
+    frictionAir:0.001,
   });
   carBody.isCenterBody = true;
   //Composite.add(this.composite, carBody);

@@ -37,7 +37,7 @@ export function init(scene) {
   ]
   );
 
-  const block = Bodies.rectangle(50, 60, 150, 60, {
+  const block = Bodies.rectangle(3400, 580, 150, 60, {
     isStatic:true,
     angle:-3.141,
     render: { fillStyle: "white", strokeStyle: "black", lineWidth: 1 },
