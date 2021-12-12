@@ -23,14 +23,23 @@ export function init(scene) {
 
   Composite.add(
     this.engine.world,
-    Bodies.rectangle(400, 610, 5510, 60, {
+    [Bodies.rectangle(400, 610, 5000, 60, {
       isStatic: true,
-      friction: 1,
+      //friction: 1,
       render: defaultBodyStyleRender,
-    })
+    }),
+    Bodies.rectangle(5100, 210, 5000, 60, {
+      isStatic: true,
+      //friction: 1,
+      angle:-0.39,
+      render: defaultBodyStyleRender,
+    }),
+  ]
   );
 
-  const block = Bodies.rectangle(550, 60, 150, 60, {
+  const block = Bodies.rectangle(50, 60, 150, 60, {
+    isStatic:true,
+    angle:-3.141,
     render: { fillStyle: "white", strokeStyle: "black", lineWidth: 1 },
   });
   Composite.add(this.engine.world, block);

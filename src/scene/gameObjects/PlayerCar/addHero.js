@@ -12,6 +12,7 @@ export function addHero() {
       },
     },
     density: 0.0005,
+    isHero:true,
   });
 
   const axelFront = Constraint.create({
@@ -47,11 +48,46 @@ export function addHero() {
     },
   });
   
+  const safetySensor = Bodies.rectangle(this.centerX, this.centerY, 90, 20, {
+    //collisionFilter: this.bodyOptions.collisionFilter,
+    isSafetySensor:true,
+    isSensor:true,
+    render: {
+      
+    },
+    density: 0.0005,
+  });
+
+
+  const safetyAxel = Constraint.create({
+    bodyB: this.getCenterBody(),
+    //pointB: { x: -30, y: -20 },
+    bodyA: safetySensor,
+    //pointA: { x: 0, y: 20 },
+    stiffness: 0.9,
+    render: { 
+        //visible: false 
+    },
+  });
+
+  const safetyAxel2 = Constraint.create({
+    bodyB: this.getCenterBody(),
+    pointB: { x: -25, y: 0 },
+    bodyA: safetySensor,
+    pointA: { x: -25, y: 0 },
+    stiffness: 0.9,
+    render: { 
+        //visible: false 
+    },
+  });
   Composite.add(this.composite, [
     hero,
     axelFront,
     axelRear,
     axelMiddle,
+    safetySensor,
+    safetyAxel,
+    safetyAxel2,
     this.getCenterBody(),
   ]);
 }

@@ -43,6 +43,7 @@ export function addWheels() {
     restitution: 1,
     friction: 1,
     label: "drive",
+    frictionStatic:0.9
   });
 
   const wheelRearSensor = Bodies.circle(

@@ -17,6 +17,8 @@ export function addEvents() {
         pair.bodyB.render.fillStyle = "#333";
         pair.bodyB.parentObj.onGround = true;
       }
+
+     
     }
   });
 
@@ -35,4 +37,21 @@ export function addEvents() {
       }
     }
   });
+
+  Events.on(this.engine, "collisionStart", (event) => {
+    var pairs = event.pairs;
+    for (let i = 0; i < pairs.length; i++) {
+      let pair = pairs[i];
+      if(pair.bodyA.isSafetySensor || pair.bodyB.isSafetySensor){
+        if(pair.bodyA.isHero || pair.bodyB.isHero){
+        console.log("game over",pair.bodyA,pair.bodyB)
+        alert("game over");}
+        
+      }
+
+    }
+  });
+
+
+ 
 }
