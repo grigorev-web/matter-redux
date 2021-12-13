@@ -4,16 +4,14 @@ import PlayerCar from "../gameObjects/PlayerCar/PlayerCar";
 import { defaultBodyStyleRender } from "../gameObjects/PlayerCar/config";
 import { addEvents } from "./events/addEvents";
 import { viewOn } from "./events/viewOn";
+import { addObjects, addWorldObjects } from "./events/addWorldObjects";
 
 export function init(scene) {
   this.scene = scene;
   this.engine = Engine.create();
   this.runner = Runner.create();
 
-  const circleObj = new CircleObj(400, 300, 30);
-  this.gameObjects.push(circleObj);
-  const playerCar = new PlayerCar(50, 200);
-  this.gameObjects.push(playerCar);
+
 
   this.render = Render.create({
     element: scene.current,
@@ -21,36 +19,11 @@ export function init(scene) {
     options: this.renderOptions,
   });
 
-  Composite.add(
-    this.engine.world,
-    [Bodies.rectangle(400, 610, 5000, 60, {
-      isStatic: true,
-      //friction: 1,
-      render: defaultBodyStyleRender,
-    }),
-    Bodies.rectangle(5100, 210, 5000, 60, {
-      isStatic: true,
-      //friction: 1,
-      angle:-0.39,
-      render: defaultBodyStyleRender,
-    }),
-  ]
-  );
-
-  const block = Bodies.rectangle(3400, 580, 150, 60, {
-    isStatic:true,
-    angle:-3.141,
-    render: { fillStyle: "white", strokeStyle: "black", lineWidth: 1 },
-  });
-  Composite.add(this.engine.world, block);
-
-  viewOn.call(this, playerCar);
-
+  const player = addWorldObjects.call(this);
+  viewOn.call(this, player);
   addEvents.call(this);
 
   Render.run(this.render);
   Runner.run(this.runner, this.engine);
-  this.gameObjects.forEach((obj) => {
-    Composite.add(this.engine.world, obj.composite);
-  });
+  
 }

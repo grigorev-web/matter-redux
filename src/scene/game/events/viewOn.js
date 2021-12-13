@@ -10,21 +10,16 @@ export function viewOn(obj) {
       : false;
 
     const abs = Math.abs;
-
-    if (prev && abs((abs(prev) - abs(speed)) > 1)) {
-      if (abs(prev) < abs(speed))
-        speed = prev + (prev ? 0.9 : -0.9);
-      if (abs(prev) > abs(speed))
-        speed = prev - (prev ? 0.9 : -0.9);
+    const diff = abs(prev - speed);
+    if (prev && diff > 1) {
+      if (diff > 20) speed = prev < speed ? prev + 0.5 : prev - 0.5;
+      else speed = prev < speed ? prev + 0.3 : prev - 0.3;
     }
 
-    //console.log("prevVelocity",obj.centerBody.prevVelocity)
     obj.centerBody.prevVelocity = speed;
 
-    //console.log("speed", speed);
-
     let xOffset = 0;
-    xOffset = speed * 30;
+    xOffset = speed * 45;
 
     let xOffsetAcc = speed * 10 + (speed * speed * speed) / 90;
 
@@ -35,7 +30,7 @@ export function viewOn(obj) {
         y: obj.getCenterBody().bounds.min.y - 200,
       },
       {
-        x: this.viewport.x + Math.abs(xOffset),
+        x: this.viewport.x + abs(xOffset),
         y: this.viewport.y,
       }
     );
