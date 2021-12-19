@@ -11,17 +11,17 @@ export function viewOn(obj) {
 
     const abs = Math.abs;
     const diff = abs(prev - speed);
-    if (prev && diff > 1) {
-      if (diff > 20) speed = prev < speed ? prev + 0.5 : prev - 0.5;
-      else speed = prev < speed ? prev + 0.3 : prev - 0.3;
+    if (prev && diff > 0.1) {
+      if (diff > 20) speed = prev < speed ? prev + 0.4 : prev - 0.4;
+      else speed = prev < speed ? prev + 0.15 : prev - 0.15;
     }
 
     obj.centerBody.prevVelocity = speed;
 
     let xOffset = 0;
-    xOffset = speed * 45;
+    xOffset = speed * 35;
 
-    let xOffsetAcc = speed * 10 + (speed * speed * speed) / 90;
+    let xOffsetAcc = speed * 10 + (speed * speed * speed) / 120;
 
     Render.lookAt(
       this.render,
@@ -34,5 +34,12 @@ export function viewOn(obj) {
         y: this.viewport.y,
       }
     );
+
+    if (this.render.options.throtlingPrallax % 4 === 0) {
+      this.render.canvas.style.backgroundPositionX =
+        this.render.bounds.max.x / 1000 + "%";
+    }
+   
+    this.render.options.throtlingPrallax++;
   });
 }

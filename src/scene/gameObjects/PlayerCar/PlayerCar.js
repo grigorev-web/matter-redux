@@ -52,19 +52,19 @@ class PlayerCar extends GameObj {
     const drive = this.drivingWheel;
     if (this.gas) {
       if (this.onGround) {
-        drive.parentObj.getCenterBody().force.x = 0.04;
+        drive.parentObj.getCenterBody().force.x = 0.05;
         drive.force.x = 0.05;
         
       }
-      if (drive.angularVelocity < 0.6) {
-        drive.torque = 4.5;
+      if (drive.angularVelocity < 0.45) {
+        drive.torque = 3.5;
         // if (onGround)
       }
     }
     if (this.brake) {
       //console.log("brake");
       if (this.onGround) drive.parentObj.getCenterBody().force.x = -0.05;
-      if (drive.angularVelocity > -0.6) drive.torque = -4.5;
+      if (drive.angularVelocity > -0.45) drive.torque = -3.5;
     }
     //console.log("MOVE");
   }

@@ -1,10 +1,7 @@
-import { Bodies, Composite, Engine, Events, Render, Runner } from "matter-js";
-import CircleObj from "../gameObjects/CircleObj";
-import PlayerCar from "../gameObjects/PlayerCar/PlayerCar";
-import { defaultBodyStyleRender } from "../gameObjects/PlayerCar/config";
+import { Engine, Render, Runner } from "matter-js";
 import { addEvents } from "./events/addEvents";
 import { viewOn } from "./events/viewOn";
-import { addObjects, addWorldObjects } from "./events/addWorldObjects";
+import { addWorldObjects } from "./addWorldObjects";
 
 export function init(scene) {
   this.scene = scene;
@@ -18,12 +15,14 @@ export function init(scene) {
     engine: this.engine,
     options: this.renderOptions,
   });
-
+  //window.render = this.render
+  
   const player = addWorldObjects.call(this);
   viewOn.call(this, player);
   addEvents.call(this);
 
   Render.run(this.render);
   Runner.run(this.runner, this.engine);
+  this.render.canvas.style.backgroundSize = "cover"
   
 }

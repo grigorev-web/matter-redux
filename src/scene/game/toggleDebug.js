@@ -8,4 +8,7 @@ export function toggleDebug() {
     r.showConvexHulls = !r.showConvexHulls;
     r.showIds = !r.showIds;
     r.showVelocity = !r.showVelocity;
+    r.showStats = !r.showStats;
+    r.showInternalEdges = !r.showInternalEdges;
+    console.log('engine',this.engine)
   }

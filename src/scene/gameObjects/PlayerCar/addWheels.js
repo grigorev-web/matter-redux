@@ -11,7 +11,7 @@ export function addWheels() {
         }
     },
     friction: 1,
-    frictionAir:0.001,
+    frictionAir:0.01,
   });
 
   Composite.add(this.composite, wheelFront);
@@ -20,7 +20,7 @@ export function addWheels() {
     bodyB: this.getCenterBody(),
     pointB: { x: 100, y: -20 },
     bodyA: wheelFront,
-    stiffness: 0.2,
+    stiffness: 0.4,
     render:{visible:false}
   });
   const axelFrontWheel2 = Constraint.create({
@@ -45,7 +45,7 @@ export function addWheels() {
     friction: 1,
     label: "drive",
     frictionStatic:0.9,
-    frictionAir:0.001,
+    frictionAir:0.01,
   });
 
   const wheelRearSensor = Bodies.circle(
@@ -83,7 +83,7 @@ export function addWheels() {
     bodyB: this.getCenterBody(),
     pointB: { x: -100, y: -20 },
     bodyA: wheelRear,
-    stiffness: 0.2,
+    stiffness: 0.4,
     render:{visible:false}
   });
   const axelRearWheel2 = Constraint.create({
